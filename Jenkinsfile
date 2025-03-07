@@ -3,4 +3,4 @@
 def COLOR_MAP = ['SUCCESS': 'good', 'FAILURE': 'danger', 'UNSTABLE': 'danger', 'ABORTED': 'danger']
 def gitbranch = "${env.BRANCH_NAME}"
 
-SamplePipeline(gitbranch : "${gitbranch}")
+TerraformEC2Provision(gitbranch : "${gitbranch}")
