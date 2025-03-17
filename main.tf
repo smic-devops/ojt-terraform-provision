@@ -105,7 +105,8 @@ resource "aws_instance" "web" {
   tags = {
     Name            = "itss-ojt-Cajayon-ec2-v2"
     Environment     = "Sandbox"
-    Schedule        = "Running (disable)"
+    backup          = "no"
+    Schedule        = "running (disable)"
     Patch           = "No"
     Resource_Types  = "Instances Volumes Network_Interfaces"
   }
