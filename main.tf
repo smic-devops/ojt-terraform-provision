@@ -7,21 +7,24 @@ resource "aws_security_group" "alb_sg" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = [aws_security_group.ec2_sg.id]
+    cidr_blocks = ["0.0.0.0/0"]
+    security_groups = ["sg-0f24a18c1aefde757"]
   }
   
   ingress {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = [aws_security_group.ec2_sg.id]
+    cidr_blocks = ["0.0.0.0/0"]
+    security_groups = ["sg-0f24a18c1aefde757"]
   }
   
   ingress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = [aws_security_group.ec2_sg.id]
+    cidr_blocks = ["0.0.0.0/0"]
+    security_groups = ["sg-0f24a18c1aefde757"]
   }
 
   egress {
@@ -45,7 +48,7 @@ resource "aws_security_group" "ec2_sg" {
     from_port       = 80
     to_port         = 80
     protocol        = "tcp"
-    security_groups = ["sg-0cd8f93d5b33bbe24"]
+    security_groups    = ["sg-0cd8f93d5b33bbe24"]
   }
 
   egress {
@@ -66,7 +69,7 @@ resource "aws_lb" "alb" {
   name               = "itss-ojt-Cajayon-alb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.alb_sg.id]
+  security_groups    = ["sg-0cd8f93d5b33bbe24"]
   subnets            = var.public_subnet_ids
 
   tags = {
@@ -110,7 +113,7 @@ resource "aws_instance" "web" {
   ami             = "ami-039454f12c36e7620"  # Replace with a valid AMI ID
   instance_type   = var.instance_type
   subnet_id       = var.private_subnet_ids[0]
-  security_groups = [aws_security_group.ec2_sg.id]
+  security_groups = [sg-0f24a18c1aefde757]
   
 
   /*lifecycle {
