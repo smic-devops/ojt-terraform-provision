@@ -15,8 +15,8 @@ variable "vpc_id" {
 
 variable "private_subnet_ids" {
   default = [
-    "subnet-07de7459e8da8614f", # default az1 private
-    "subnet-0505a4a0c588015d7"  # default az2 private
+    "subnet-0ee426ba08e9643d9", # default az1 private
+    "subnet-095cdc7b816291369"  # default az2 private
   ]
 }
 
