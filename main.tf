@@ -113,9 +113,9 @@ resource "aws_instance" "web" {
   security_groups = [aws_security_group.ec2_sg.id]
   
 
-  lifecycle {
+  /*lifecycle {
     prevent_destroy = true
-  }
+  }*/
 
   tags = {
     Name            = "itss-ojt-Cajayon-ec2-v2"
