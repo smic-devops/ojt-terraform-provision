@@ -114,11 +114,6 @@ resource "aws_instance" "web" {
   instance_type   = var.instance_type
   subnet_id       = var.private_subnet_ids[0]
   security_groups = ["sg-0f24a18c1aefde757"]
-  
-
-  /*lifecycle {
-    prevent_destroy = true
-  }*/
 
   tags = {
     Name            = "itss-ojt-Cajayon-ec2-v2"
