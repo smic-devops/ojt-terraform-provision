@@ -113,7 +113,7 @@ resource "aws_instance" "web" {
   ami             = "ami-039454f12c36e7620"  # Replace with a valid AMI ID
   instance_type   = var.instance_type
   subnet_id       = var.private_subnet_ids[0]
-  security_groups = [sg-0f24a18c1aefde757]
+  security_groups = ["sg-0f24a18c1aefde757"]
   
 
   /*lifecycle {
