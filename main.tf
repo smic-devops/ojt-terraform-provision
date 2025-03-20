@@ -7,21 +7,14 @@ resource "aws_security_group" "alb_sg" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    security_groups = ["sg-0f24a18c1aefde757"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
   
   ingress {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    security_groups = ["sg-0f24a18c1aefde757"]
-  }
-  
-  ingress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    security_groups = ["sg-0f24a18c1aefde757"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
@@ -52,7 +45,7 @@ resource "aws_security_group" "ec2_sg" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    security_groups = ["sg-0cd8f93d5b33bbe24"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags = {
